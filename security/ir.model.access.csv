@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_office_officedocument,access_office_officedocument,model_office_officedocument,,1,1,1,1
+access_office_doc_type,access_office_doc_type,model_office_doc_type,,1,1,1,1
+access_office_cc_user,access_office_cc_user,model_office_cc_user,,1,1,1,1
+access_office_doc_template,access_office_doc_template,model_office_doc_template,,1,1,1,1
+access_office_to_user,access_office_to_user,model_office_to_user,,1,1,1,1
+access_office_doc_history,access_office_doc_history,model_office_doc_history,,1,1,1,1

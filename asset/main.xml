@@ -1,0 +1,89 @@
+<odoo>
+    <data>
+        <record id="view_officedocument_tree" model="ir.ui.view">
+            <field name="name">office_officedocument_tree</field>
+            <field name="model">office.officedocument</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="officedocument Tree">
+                    <field name="name"/>
+                    <field name="perihal_id"/>
+                    <field name="dari_id"/>
+                    <field name="kepada_id"/>
+                    <field name="klasifikasi_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_officedocument_form" model="ir.ui.view">
+            <field name="name">office_officedocument_form</field>
+            <field name="model">office.officedocument</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="officedocument Form">
+                    <header>
+                        <button string="Send Approval" type="object" name="action_open" class="oe_highlight" states="open"/>
+                        <button string="Send Confirm" type="object" name="action_send" class="oe_highlight" states="approved"/>
+                        <button string="Cancel" type="object" name="action_draft" class="oe_highlight" states="open"/>
+                        <button string="Reply" type="object" name="action_reply" class="oe_highlight" states="read"/>
+                        <button string="Forward" type="object" name="action_forward" states="read"/>
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Nomor Surat"/>
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="perihal_id"/>
+                            <field name="isisurat_id"/>
+                            <field name="dari_id"/>
+                        </group>
+                        <group>
+                            <field name="klasifikasi_id"/>
+                            <field name="template_id"/>
+                            <field name="sumbersurat_id"/>
+                        </group>
+                        <group>
+                            <field name="kepada_id"/>
+                                <field name="dari_id"/>
+                                <field name="status_id"/>
+                        </group>
+                        <group>
+                            <field name="tembusan_id"/>                            
+                                <field name="dari_id"/>
+                                <field name="status_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="office_document_search" model="ir.ui.view">
+            <field name="name">office_officedocument_search</field>
+            <field name="model">office.officedocument</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="office_document_search">
+                    <filter string="Documents" name="course" domain="[('user_id','=',uid)]" />          
+                    <filter string="Unread" name="Unread" domain="[('state','=','unread')]" />         
+                    <filter string="Read" name="Read" domain="[('state','=','read')]" />
+                    <separator/>
+                    <field name="name"/>
+                    <field name="dari_id"/>
+                    <field name="kepada_id"/>
+                    <field name="tembusan_id"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Klasifikasi" name="doc_type" domain="[]"
+                                context="{'group_by':'doc_type_id'}"/>
+                        <filter string="Template" name="doc_template" domain="[]"
+                                context="{'group_by':'doc_template_id'}"/>
+                        <filter string="Sender" name="user" domain="[]"
+                                context="{'group_by':'user_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

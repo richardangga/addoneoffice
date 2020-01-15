@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record id="action_office_officedocument_list" model="ir.actions.act_window">
+            <field name="name">Document EOffice</field>
+            <field name="res_model">office.officedocument</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+			<p class="oe_view_nocontent_create">Click to add a Document</p>
+			<p>Klik tombol Create untuk membuat Document baru</p></field>
+        </record>
+        <record id="action_office_doc_type_list" model="ir.actions.act_window">
+            <field name="name">Document EOffice Type</field>
+            <field name="res_model">office.doc_type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+			<p class="oe_view_nocontent_create">Click to add a Type</p>
+			<p>Klik tombol Create untuk membuat Type baru</p></field>
+        </record>
+        <record id="action_office_doc_template_list" model="ir.actions.act_window">
+            <field name="name">Document EOffice Template</field>
+            <field name="res_model">office.doc_template</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="help" type="html">
+			<p class="oe_view_nocontent_create">Click to add a Template</p>
+			<p>Klik tombol Create untuk membuat User baru</p></field> -->
+        </record>
+        <record id="action_office_doc_history_list" model="ir.actions.act_window">
+            <field name="name">Document EOffice History</field>
+            <field name="res_model">office.doc_history</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="help" type="html">
+			<p class="oe_view_nocontent_create">Click to add a User</p>
+			<p>Klik tombol Create untuk membuat User baru</p></field> -->
+        </record>
+        <menuitem id="menu_office" name="EOffice" sequence="20"/>
+        <menuitem id="menu_office_document" name="Menu" parent="menu_office" sequence="20"/>
+        <menuitem id="menu_office_officedocument" name="EOffice Letter" parent="menu_office_document" action="action_office_officedocument_list" sequence="20"/>
+        <menuitem id="menu_office_doc_type" name="EOffice Type" parent="menu_office_document" action="action_office_doc_type_list" sequence="20"/>
+        <menuitem id="menu_office_doc_template" name="EOffice Template" parent="menu_office_document" action="action_office_doc_template_list" sequence="20"/>
+        <menuitem id="menu_office_doc_history" name="EOffice History" parent="menu_office_document" action="action_office_doc_history_list" sequence="20"/>
+    </data>
+</odoo> 
